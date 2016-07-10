@@ -1,2 +1,4 @@
 ---
 # defaults file for validation_prereqs
+
+proxy_env: { }

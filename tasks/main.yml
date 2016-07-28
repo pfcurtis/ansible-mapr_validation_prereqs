@@ -78,7 +78,7 @@
         dest: .
         mode: 0750
       run_once: yes
-      when: "'{{inventory_hostname}}' == '{{groups.cluster|first}}' and install_mapr_installer"
+      when: "'{{inventory_hostname}}' == '{{groups.cluster|first}}' and install_mapr_installer is defined and install_mapr_installer"
       environment: '{{proxy_env}}'
 
     - name: run the installer script to set up the installer

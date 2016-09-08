@@ -79,7 +79,6 @@
         mode: 0750
       run_once: yes
       when: "'{{inventory_hostname}}' == '{{groups.cluster|first}}' and install_mapr_installer is defined and install_mapr_installer"
-      environment: '{{proxy_env}}'
 
     - name: run the installer script to set up the installer
       become: true
@@ -87,4 +86,3 @@
       run_once: yes
       command: ./mapr-setup.sh -y -p {{inventory_hostname}}:{{installer_port|default(9443)}}
       when: "'{{inventory_hostname}}' == '{{groups.cluster|first}}' and install_mapr_installer is defined and install_mapr_installer"
-      environment: '{{proxy_env}}'
